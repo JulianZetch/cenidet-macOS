@@ -1,24 +1,8 @@
-# Creando el primer cambio para Github, Proyecto de cenidet
+# Sistema Gestor de Procesos Academicos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Esta aplicacion busca ser una plataforma gestora de procesos academicos, ademas de brindarle al alumno un espacio para compartir informacion y experiencias.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Caracteristicas
+- Comentarios en tiempo real
+- Portafolio
+- Blog
