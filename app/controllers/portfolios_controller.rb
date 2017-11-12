@@ -26,7 +26,7 @@ class PortfoliosController < ApplicationController
   def edit
     @portfolio_item = Portfolio.find(params[:id])
   end
-
+    # Metodo creado para actualizar los datos editados
   def update
     @portfolio_item = Portfolio.find(params[:id])
     respond_to do |format|
@@ -38,6 +38,10 @@ class PortfoliosController < ApplicationController
         #format.json { render json: @portfolio_item .errors, status: :unprocessable_entity }
       end
     end
+  end
+    #Metodo utulizado para mostrar los datos al dar clic en el titulo
+  def show
+    @portfolio_item = Portfolio.find(params[:id])
   end
 end
 
