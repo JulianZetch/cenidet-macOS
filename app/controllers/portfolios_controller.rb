@@ -43,6 +43,19 @@ class PortfoliosController < ApplicationController
   def show
     @portfolio_item = Portfolio.find(params[:id])
   end
+
+    #Escogi destroy en lugar de delete para que sea mas especifico y cuidadoso eliminar un dato de la BD
+  def destroy
+    #Realiza la busqueda
+    @portfolio_item = Portfolio.find(params[:id])
+    #Elimina o destruye el articulo
+    @portfolio_item.destroy
+    #Redirecciona la pagina
+    respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: 'El articulo ha sido eliminado' }
+      format.json { head :no_content }
+    end
+  end
 end
 
 
