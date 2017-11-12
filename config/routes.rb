@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :portfolios
+  # Se restringe la ruta para show
+  resources :portfolios, except: [:show]
+  # Se crea la ruta para show
+  get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
 
   # Se establecen las rutas
   get 'acerca-de', to: 'pages#about'

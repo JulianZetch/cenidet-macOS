@@ -3,7 +3,7 @@
 <% @portfolio_items.each do |portfolio_item| %>
 <%# Esto va a hacer que el titulo se vuelva link para  que al dar click nos reenvie a
 la vista de unicamente este item, esto gracias al metodo show y al id de cada item %>
-<p><%= link_to portfolio_item.title, portfolio_path(portfolio_item) %></p>
+<p><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></p>
 <p><%= portfolio_item.subtitle%></p>
 <p><%= portfolio_item.body%></p>
 <%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil? %>
