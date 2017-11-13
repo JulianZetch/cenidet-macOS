@@ -7,19 +7,22 @@
     <tr>
       <th>Titulo</th>
       <th>Contenido</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @blogs.each do |blog| %>
+    <%# Muestra como estan ordenadas las columnas y cuantas son %>
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.body %></td>
+
+        <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
         <!-- Estos nombres pueden ser cambiados, estan conectados a blogs_controler.rb -->
         <td><%= link_to 'Mostrar', blog %></td>
         <td><%= link_to 'Editar', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Eliminar', blog, method: :delete, data: { confirm: '¿Estas seguro de eliminar esta entrada?' } %></td>
+        <td><%= link_to 'Eliminar', blog, method: :delete, data: { confirm: "¿Estas seguro de eliminar '#{blog.title}'?" } %></td>
       </tr>
     <% end %>
   </tbody>

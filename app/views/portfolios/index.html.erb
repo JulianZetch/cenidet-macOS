@@ -1,0 +1,16 @@
+<h1>Articulos del Portafolio</h1>
+<%= link_to "Nuevo Articulo ", new_portfolio_url  %>
+<% @portfolio_items.each do |portfolio_item| %>
+<%# Esto va a hacer que el titulo se vuelva link para  que al dar click nos reenvie a
+la vista de unicamente este item, esto gracias al metodo show y al id de cada item %>
+<p><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></p>
+<p><%= portfolio_item.subtitle%></p>
+<p><%= portfolio_item.body%></p>
+<%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil? %>
+<%= link_to "Editar", edit_portfolio_path(portfolio_item)%>
+<%# Aunqeu el link para el titulo y el link para eliminar sean iguales [porfolio_path (portfolio_item)]
+    las rutas en rake routes me permiten saber a donde redirigir, el metodo cambia %>
+<%= link_to 'Eliminar', portfolio_path(portfolio_item), method: :delete, data: { confirm: "¿Estas seguro de eliminar '#{portfolio_item.title}' ?" } %>
+
+
+<% end %>

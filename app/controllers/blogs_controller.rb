@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
   # GET /blogs.json
@@ -61,10 +61,22 @@ class BlogsController < ApplicationController
     end
   end
 
+  def toggle_status
+      # gema para hacer debug, puedes encontrarla en el Gemfile
+      #byebug
+      if @blog.draft?
+        @blog.published!
+      elsif @blog.published?
+        @blog.draft!
+      end
+      redirect_to blogs_url, notice: 'El estado del post ha sido actualizado'
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.find(params[:id])
+      # Agregamos el friendly
+      @blog = Blog.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
