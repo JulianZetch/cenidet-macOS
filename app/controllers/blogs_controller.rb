@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
   # GET /blogs.json
@@ -60,6 +60,17 @@ class BlogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def toggle_status
+      # gema para hacer debug, puedes encontrarla en el Gemfile
+      #byebug
+      if @blog.draft?
+        @blog.published!
+      elsif @blog.published?
+        @blog.draft!
+      end
+      redirect_to blogs_url, notice: 'El estado del post ha sido actualizado'
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
