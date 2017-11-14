@@ -6,4 +6,7 @@ class Blog < ApplicationRecord
 
  # Para validar que el blog contrenga Titulo y Cuerpo
  validates_presence_of :title, :body
+
+ # Para las categorias o temas ( vease schema.rb y migrate _add_topic)
+ belongs_to :topic
 end
