@@ -2,6 +2,10 @@ class PortfoliosController < ApplicationController
  def index
     @portfolio_items = Portfolio.all
  end
+
+ def angular
+    @angular_portfolio_items = Portfolio.angular
+ end
  # Creamos un nuevo articulo para el Porfafolio, este valigado
  # a create, similar a app/controllers/blog_controller
   def new

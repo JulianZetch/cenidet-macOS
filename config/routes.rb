@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   # Se restringe la ruta para show
   resources :portfolios, except: [:show]
+  get 'articulos-angular', to: 'portfolios#angular'
   # Se crea la ruta para show
   get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
 
   # Se establecen las rutas
+
   get 'acerca-de', to: 'pages#about'
 
   get 'contacto', to:'pages#contact'
