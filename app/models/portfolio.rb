@@ -1,4 +1,5 @@
 class Portfolio < ApplicationRecord
+  include Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
   # si cambiamos en portfolios_controller.rb  @portfolio_items = Portfolio.angular
   # va a darnos unicamente los articulos que tengan como subtitulo 'Angular'
@@ -14,7 +15,8 @@ class Portfolio < ApplicationRecord
   # Ten en cuenta que ||= significa que si main_image o thumb_image son nil
   # Entonces agrega lo que esta despues del igual, si no son nil entoces no hace nada
   def set_defaults
-    self.main_image ||= "http://via.placeholder.com/600x400"
-    self.thumb_image ||= "http://via.placeholder.com/350x200"
+    #Aqui se pueden cambiar las dimensiones de la imagen por default
+    self.main_image ||= Placeholder.image_generator(height: '600', width: '400')
+    self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
   end
 end
