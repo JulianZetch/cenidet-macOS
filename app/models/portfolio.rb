@@ -7,4 +7,14 @@ class Portfolio < ApplicationRecord
   end
   # Este es por si queremos ver unicamente los Articulos que tengan "Ruby on Rails " como subtitulo
   scope :ruby_on_rails_portfolio_items, -> {where(subtitle: "Ruby on Rails")}
+
+  after_initialize :set_defaults
+  # Los valores por defecto en las imagenes para que al crear
+  # un nuevo articulo, automaticamente se de este tamano a las imagenes
+  # Ten en cuenta que ||= significa que si main_image o thumb_image son nil
+  # Entonces agrega lo que esta despues del igual, si no son nil entoces no hace nada
+  def set_defaults
+    self.main_image ||= "http://via.placeholder.com/600x400"
+    self.thumb_image ||= "http://via.placeholder.com/350x200"
+  end
 end
