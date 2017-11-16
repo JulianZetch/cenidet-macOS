@@ -1,5 +1,8 @@
 class Portfolio < ApplicationRecord
   has_many :technologies
+  # Se obliga al usuario a inlcuir el nombre de la tecnologia
+  accepts_nested_attributes_for :technologies,
+                                reject_if: lambda {|attrs|attrs['name'].blank? }
   include Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
   # si cambiamos en portfolios_controller.rb  @portfolio_items = Portfolio.angular
