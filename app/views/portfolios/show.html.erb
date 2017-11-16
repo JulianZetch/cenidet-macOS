@@ -4,3 +4,8 @@ esta accion me muetra todo el contenido, asi que vamos a ser mas especificos... 
 <h1><%= @portfolio_item.title  %></h1>
 <em><%= @portfolio_item.subtitle  %></em>
 <p><%= @portfolio_item.body  %></p>
+<h2>Incluye Tecnologias :</h2>
+<%# Se muestran las tecnolgias que incluye este articulo o portafolio %>
+<% @portfolio_item.technologies.each do |t|%>
+<p><%= t.name %> </p>
+<%end%>

@@ -10,10 +10,11 @@ class PortfoliosController < ApplicationController
  # a create, similar a app/controllers/blog_controller
   def new
     @portfolio_item= Portfolio.new
+    3.times{ @portfolio_item.technologies.build}
   end
 
   def create
-    @portfolio_item= Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))#A diferencia del blogs_controller, vamos a poner los parametros dentro de la variable, en lugar de un metodo
+    @portfolio_item= Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))#A diferencia del blogs_controller, vamos a poner los parametros dentro de la variable, en lugar de un metodo
 
     respond_to do |format|
       if @portfolio_item.save
