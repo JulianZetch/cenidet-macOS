@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Se restringe la ruta para show
   resources :portfolios, except: [:show]
   get 'articulos-angular', to: 'portfolios#angular'
