@@ -2,7 +2,7 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <h3>Entradas de Blog</h3>
-<%=@post.inspect%>
+<%=@post.pluck(:title)%>
 
 <h3>Habilidades</h3>
 <%=@skills.inspect%>
