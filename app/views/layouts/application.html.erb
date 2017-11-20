@@ -24,7 +24,7 @@
         como twitter, facebook, etc %>
 
     <% if session[:source] %>
-      <p> Gracias por visitarnos desde <%= session[:source]%> </p>
+      <p> Gracias por visitarnos desde <%= session[:source].capitalize%> </p>
    <% end %>
 
 
