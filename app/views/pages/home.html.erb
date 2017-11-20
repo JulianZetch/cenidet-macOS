@@ -1,8 +1,12 @@
 <h1>Esta es la pagina de Home</h1>
+
+<h3>Hola
+  <%= current_user.first_name if current_user %>
+ !</h3>
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <h3>Entradas de Blog</h3>
-<%=@post.inspect%>
+<%=@post.pluck(:title)%>
 
 <h3>Habilidades</h3>
 <%=@skills.inspect%>

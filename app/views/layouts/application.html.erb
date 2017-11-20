@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%# Creado boton para salir, entrar y registrarse%>
+    <% if current_user %>
+      <h3>Bienvenido <h3>
+      <%= link_to "Salir" , destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Registrarse" , new_user_registration_path %>
+      <%= link_to "Entrar" , new_user_session_path%>
+    <% end %>
     <%= yield %>
   </body>
 </html>

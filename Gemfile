@@ -51,3 +51,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Para que en la URL no aparezcan numeros, sino palbras
 gem 'friendly_id', '~> 5.1.0'
+# Gema necesaria para la autenticacion de usuarios
+gem 'devise', '~> 4.3'
