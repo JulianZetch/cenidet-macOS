@@ -20,5 +20,13 @@
       <%= link_to "Entrar" , new_user_session_path%>
     <% end %>
     <%= yield %>
+    <%#Esto me permite si el usuario nos esta visitando de alguna pagina
+        como twitter, facebook, etc %>
+
+    <% if session[:source] %>
+      <p> Gracias por visitarnos desde <%= session[:source]%> </p>
+   <% end %>
+
+
   </body>
 </html>
