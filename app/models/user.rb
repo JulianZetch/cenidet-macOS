@@ -6,14 +6,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   # Debemos asegurarnos que el usuario haya escrito el nombre
-  ###validates_presence_of :name
+  validates_presence_of :name
   # Atributos Virtuales
-  ###def first_name
+  def first_name
     #Como ya ingresamos, self se refiere al User.name
-    # Split es un metodo que separa una cadena mediante un espacio ejemplo : "Julian Zetina".split => ["Jilian", "Zetina"]
-    ###self.name.split.first
-
- ### end
+    # Split es un metodo que separa una cadena mediante un espacio ejemplo : "Julian Zetina".split => ["Julian", "Zetina"]
+    ##self.name.split.first
+    self.name
+  end
 
  ### def last_name
 
